@@ -45,7 +45,7 @@ class LoginProvider extends ChangeNotifier {
     }).catchError((e) async {
       await EasyLoading.dismiss();
       ApiError error = e;
-      fail(error.message ?? "");
+      fail(error.message?.replaceAll("\"", "") ?? "");
     });
   }
 }

@@ -4,7 +4,7 @@ import 'package:test_app_flutter/presentation/main_tab/main_tab_page.dart';
 
 class AppRouteName {
   static const mainTab = '/mainTab';
-  static const login = '/login';
+  static const login = '/';
 }
 
 Route<dynamic> onGenerateRoutes(RouteSettings settings) {
@@ -13,13 +13,11 @@ Route<dynamic> onGenerateRoutes(RouteSettings settings) {
       return _buildRoute(const MainTabPage(), settings);
     case AppRouteName.login:
       return _buildRoute(const LoginPage(), settings);
-
     default:
-      return _buildRoute(CupertinoPageScaffold(child: Container()), settings);
+      return _buildRoute(const LoginPage(), settings);
   }
 }
 
 _buildRoute(Widget widget, RouteSettings settings) {
-  return CupertinoPageRoute(builder: (context) => widget);
-  // return MaterialPageRoute(builder: (context) => widget, settings: settings);
+  return CupertinoPageRoute(builder: (context) => widget, settings: settings);
 }
